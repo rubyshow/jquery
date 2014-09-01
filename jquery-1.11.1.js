@@ -4,6 +4,7 @@
  *
  * Includes Sizzle.js
  * http://sizzlejs.com/
+ * Sinzzle.js 是一个js实现的css高速引擎选择器。jquery官方测试其性能比jquery选择器性能提升49%
  *
  * Copyright 2005, 2014 jQuery Foundation, Inc. and other contributors
  * Released under the MIT license
@@ -57,6 +58,7 @@ var class2type = {};
 
 var toString = class2type.toString;
 
+//hasOwnProperty 为了判断一个对象是否包含自定义属性而不是原型链上的属性， 我们需要使用继承自 Object.prototype 的 hasOwnProperty 方法
 var hasOwn = class2type.hasOwnProperty;
 
 var support = {};
@@ -78,10 +80,12 @@ var
 	rtrim = /^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g,
 
 	// Matches dashed string for camelizing
+	//正则的不同形式
 	rmsPrefix = /^-ms-/,
 	rdashAlpha = /-([\da-z])/gi,
 
 	// Used by jQuery.camelCase as callback to replace()
+	//被用在jquery.camelCase【用来转换字符串为驼峰式】
 	fcamelCase = function( all, letter ) {
 		return letter.toUpperCase();
 	};
